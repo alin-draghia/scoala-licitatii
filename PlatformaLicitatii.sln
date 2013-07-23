@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicitatiiDAL", "LicitatiiDAL\LicitatiiDAL.csproj", "{9E123973-5E7C-4B14-83AB-F86D66865A54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vanzator", "Vanzator\Vanzator.csproj", "{D6A86735-FDE9-45FF-97A2-19DE0D8D4829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDB", "TestDB\TestDB.csproj", "{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E123973-5E7C-4B14-83AB-F86D66865A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E123973-5E7C-4B14-83AB-F86D66865A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E123973-5E7C-4B14-83AB-F86D66865A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E123973-5E7C-4B14-83AB-F86D66865A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A86735-FDE9-45FF-97A2-19DE0D8D4829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A86735-FDE9-45FF-97A2-19DE0D8D4829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A86735-FDE9-45FF-97A2-19DE0D8D4829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A86735-FDE9-45FF-97A2-19DE0D8D4829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

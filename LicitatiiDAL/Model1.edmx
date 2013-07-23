@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Licitatii.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LicitatiiStoreContainer">
+    <EntitySet Name="Utilizatori" EntityType="Licitatii.Store.Utilizatori" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Produse" EntityType="Licitatii.Store.Produse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Utilizatori_Vanzator" EntityType="Licitatii.Store.Utilizatori_Vanzator" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Utilizatori_Cumparator" EntityType="Licitatii.Store.Utilizatori_Cumparator" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="VanzatorProdus" Association="Licitatii.Store.VanzatorProdus">
+      <End Role="Vanzator" EntitySet="Utilizatori_Vanzator" />
+      <End Role="Produs" EntitySet="Produse" />
+    </AssociationSet>
+    <AssociationSet Name="CumparatorProdus" Association="Licitatii.Store.CumparatorProdus">
+      <End Role="Cumparator" EntitySet="Utilizatori_Cumparator" />
+      <End Role="Produs" EntitySet="Produse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vanzator_inherits_Utilizator" Association="Licitatii.Store.FK_Vanzator_inherits_Utilizator">
+      <End Role="Utilizator" EntitySet="Utilizatori" />
+      <End Role="Vanzator" EntitySet="Utilizatori_Vanzator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cumparator_inherits_Utilizator" Association="Licitatii.Store.FK_Cumparator_inherits_Utilizator">
+      <End Role="Utilizator" EntitySet="Utilizatori" />
+      <End Role="Cumparator" EntitySet="Utilizatori_Cumparator" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Utilizatori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prenume" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Descriere" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PretDeInceput" Type="decimal" Nullable="false" />
+    <Property Name="PretLicitat" Type="decimal" Nullable="true" />
+    <Property Name="DataDeInceput" Type="datetime" Nullable="false" />
+    <Property Name="DataDeSfarsit" Type="datetime" Nullable="false" />
+    <Property Name="VanzatorId" Type="int" Nullable="false" />
+    <Property Name="CumparatorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilizatori_Vanzator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Adresa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilizatori_Cumparator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CNP" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="VanzatorProdus">
+    <End Role="Vanzator" Type="Licitatii.Store.Utilizatori_Vanzator" Multiplicity="1" />
+    <End Role="Produs" Type="Licitatii.Store.Produse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vanzator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produs">
+        <PropertyRef Name="VanzatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CumparatorProdus">
+    <End Role="Cumparator" Type="Licitatii.Store.Utilizatori_Cumparator" Multiplicity="1" />
+    <End Role="Produs" Type="Licitatii.Store.Produse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cumparator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Produs">
+        <PropertyRef Name="CumparatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vanzator_inherits_Utilizator">
+    <End Role="Utilizator" Type="Licitatii.Store.Utilizatori" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vanzator" Type="Licitatii.Store.Utilizatori_Vanzator" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vanzator">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cumparator_inherits_Utilizator">
+    <End Role="Utilizator" Type="Licitatii.Store.Utilizatori" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cumparator" Type="Licitatii.Store.Utilizatori_Cumparator" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilizator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cumparator">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Licitatii" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="LicitatiiContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Utilizatori" EntityType="Licitatii.Utilizator" />
+          <EntitySet Name="Produse" EntityType="Licitatii.Produs" />
+          <AssociationSet Name="VanzatorProdus" Association="Licitatii.VanzatorProdus">
+            <End Role="Vanzator" EntitySet="Utilizatori" />
+            <End Role="Produs" EntitySet="Produse" />
+          </AssociationSet>
+          <AssociationSet Name="CumparatorProdus" Association="Licitatii.CumparatorProdus">
+            <End Role="Cumparator" EntitySet="Utilizatori" />
+            <End Role="Produs" EntitySet="Produse" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Utilizator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nume" Nullable="false" />
+          <Property Type="String" Name="Prenume" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nume" Nullable="false" />
+          <Property Type="String" Name="Descriere" Nullable="true" />
+          <Property Type="Decimal" Name="PretDeInceput" Nullable="false" />
+          <Property Type="Decimal" Name="PretLicitat" Nullable="true" />
+          <Property Type="DateTime" Name="DataDeInceput" Nullable="false" />
+          <Property Type="DateTime" Name="DataDeSfarsit" Nullable="false" />
+          <NavigationProperty Name="Vanzator" Relationship="Licitatii.VanzatorProdus" FromRole="Produs" ToRole="Vanzator" />
+          <Property Type="Int32" Name="VanzatorId" Nullable="false" />
+          <NavigationProperty Name="Cumparator" Relationship="Licitatii.CumparatorProdus" FromRole="Produs" ToRole="Cumparator" />
+          <Property Type="Int32" Name="CumparatorId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vanzator" BaseType="Licitatii.Utilizator" >
+          <Property Type="String" Name="Adresa" Nullable="false" />
+          <NavigationProperty Name="Produs" Relationship="Licitatii.VanzatorProdus" FromRole="Vanzator" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="Cumparator" BaseType="Licitatii.Utilizator" >
+          <Property Type="String" Name="CNP" Nullable="false" />
+          <Property Type="String" Name="Telefon" Nullable="false" />
+          <NavigationProperty Name="Produs" Relationship="Licitatii.CumparatorProdus" FromRole="Cumparator" ToRole="Produs" />
+        </EntityType>
+        <Association Name="VanzatorProdus">
+          <End Type="Licitatii.Vanzator" Role="Vanzator" Multiplicity="1" />
+          <End Type="Licitatii.Produs" Role="Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vanzator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produs">
+              <PropertyRef Name="VanzatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CumparatorProdus">
+          <End Type="Licitatii.Cumparator" Role="Cumparator" Multiplicity="1" />
+          <End Type="Licitatii.Produs" Role="Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cumparator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Produs">
+              <PropertyRef Name="CumparatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LicitatiiStoreContainer" CdmEntityContainer="LicitatiiContext">
+    <EntitySetMapping Name="Utilizatori">
+      <EntityTypeMapping TypeName="IsTypeOf(Licitatii.Utilizator)">
+        <MappingFragment StoreEntitySet="Utilizatori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Licitatii.Vanzator)">
+        <MappingFragment StoreEntitySet="Utilizatori_Vanzator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(Licitatii.Cumparator)">
+        <MappingFragment StoreEntitySet="Utilizatori_Cumparator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CNP" ColumnName="CNP" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produse">
+      <EntityTypeMapping TypeName="IsTypeOf(Licitatii.Produs)">
+        <MappingFragment StoreEntitySet="Produse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+          <ScalarProperty Name="PretDeInceput" ColumnName="PretDeInceput" />
+          <ScalarProperty Name="PretLicitat" ColumnName="PretLicitat" />
+          <ScalarProperty Name="DataDeInceput" ColumnName="DataDeInceput" />
+          <ScalarProperty Name="DataDeSfarsit" ColumnName="DataDeSfarsit" />
+          <ScalarProperty Name="VanzatorId" ColumnName="VanzatorId" />
+          <ScalarProperty Name="CumparatorId" ColumnName="CumparatorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
