@@ -23,7 +23,10 @@ namespace Vanzator
 
             var formularAutentificare = new FormularAutentificare();
             var rezultatAutenficare = formularAutentificare.ShowDialog();
-
+            if (rezultatAutenficare == DialogResult.OK) 
+            {
+                Application.Run(new FormularVanzator());
+            }
             //Application.Run();
             //Application.Run(new Form1());
         }

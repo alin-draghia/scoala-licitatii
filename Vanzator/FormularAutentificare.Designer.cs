@@ -87,6 +87,7 @@
             // 
             // acceptaButon
             // 
+            this.acceptaButon.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.acceptaButon.Location = new System.Drawing.Point(116, 102);
             this.acceptaButon.Name = "acceptaButon";
             this.acceptaButon.Size = new System.Drawing.Size(75, 23);
@@ -112,7 +113,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FormaAutentificare
+            // FormularAutentificare
             // 
             this.AcceptButton = this.acceptaButon;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,7 +129,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormaAutentificare";
+            this.Name = "FormularAutentificare";
             this.Text = "Formular Autentificare";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
