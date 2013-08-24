@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vanzator", "Vanzator\Vanzat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDB", "TestDB\TestDB.csproj", "{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cumparator", "Cumparator\Cumparator.csproj", "{7783DA10-CBCD-49D1-8FCE-1463F7C21228}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A7D63EB-8FBD-45DF-ABFB-043FFEEDF5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7783DA10-CBCD-49D1-8FCE-1463F7C21228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7783DA10-CBCD-49D1-8FCE-1463F7C21228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7783DA10-CBCD-49D1-8FCE-1463F7C21228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7783DA10-CBCD-49D1-8FCE-1463F7C21228}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

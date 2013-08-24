@@ -11,7 +11,7 @@ namespace Vanzator
     {
 
         public static LicitatiiDAL.Vanzator Vanzator { get; set; }
-        public static LicitatiiContext Context { get; private set; }
+        public static LicitatiiContext Context { get; set; }
 
         /// <summary>
         /// The main entry point for the application.

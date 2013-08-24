@@ -33,7 +33,6 @@ namespace Vanzator
             toolStripComboBox1.ComboBox.DataSource = Enum.GetValues(typeof(Filtru));
             toolStripComboBox1.ComboBox.SelectedValueChanged += ComboBox_SelectedValueChanged;
             updateBinding();
-            timer1.Enabled = true;
         }
 
         void ComboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -72,7 +71,7 @@ namespace Vanzator
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            
             var dlgAddProdus = new FormAddProdus();
 
 
@@ -103,12 +102,12 @@ namespace Vanzator
             {
                 produsBindingSource.CancelEdit();
             }
-            timer1.Enabled = true;
+            
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+            
             var raspuns = MessageBox.Show("Doriti sa stergeti produsul?", "Stergere", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (raspuns == System.Windows.Forms.DialogResult.Yes)
             {
@@ -117,19 +116,18 @@ namespace Vanzator
                 Program.Context.SaveChanges();
                 updateBinding();
             }
-            timer1.Enabled = true;
+    
         }
 
         private void produsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            timer1.Enabled = false;
+           
             Filtru filtru;
             Enum.TryParse<Filtru>(toolStripComboBox1.ComboBox.SelectedValue.ToString(), out filtru);
 
             if (filtru == Filtru.Vandute)
             {
-                timer1.Enabled = true;
                 return;
             }
 
@@ -157,11 +155,18 @@ namespace Vanzator
             {
                 produsBindingSource.CancelEdit();
             }
-            timer1.Enabled = true;
+            
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+      
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            /*
+             * recontectare in caz ca datele au fost modificate in afara aplicatiei curente
+             */
+            Program.Context.Dispose();
+            Program.Context = new LicitatiiContext();
+            Program.Vanzator = Program.Context.Utilizatori.OfType<LicitatiiDAL.Vanzator>().Where(u => u.Id == Program.Vanzator.Id).FirstOrDefault();
             updateBinding();
         }
 
