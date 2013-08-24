@@ -37,13 +37,13 @@
             System.Windows.Forms.Label telefonLabel;
             System.Windows.Forms.Label usernameLabel;
             this.cNPTextBox = new System.Windows.Forms.TextBox();
+            this.cumparatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.numeTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.prenumeTextBox = new System.Windows.Forms.TextBox();
             this.telefonTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
-            this.cumparatorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAccepta = new System.Windows.Forms.Button();
             this.btnAnulare = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -67,14 +67,6 @@
             cNPLabel.TabIndex = 1;
             cNPLabel.Text = "CNP:";
             // 
-            // cNPTextBox
-            // 
-            this.cNPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "CNP", true));
-            this.cNPTextBox.Location = new System.Drawing.Point(34, 115);
-            this.cNPTextBox.Name = "cNPTextBox";
-            this.cNPTextBox.Size = new System.Drawing.Size(118, 20);
-            this.cNPTextBox.TabIndex = 2;
-            // 
             // idLabel
             // 
             idLabel.AutoSize = true;
@@ -83,14 +75,6 @@
             idLabel.Size = new System.Drawing.Size(19, 13);
             idLabel.TabIndex = 3;
             idLabel.Text = "Id:";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(358, 70);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox.TabIndex = 4;
             // 
             // numeLabel
             // 
@@ -101,14 +85,6 @@
             numeLabel.TabIndex = 5;
             numeLabel.Text = "Nume:";
             // 
-            // numeTextBox
-            // 
-            this.numeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Nume", true));
-            this.numeTextBox.Location = new System.Drawing.Point(32, 31);
-            this.numeTextBox.Name = "numeTextBox";
-            this.numeTextBox.Size = new System.Drawing.Size(226, 20);
-            this.numeTextBox.TabIndex = 6;
-            // 
             // passwordLabel
             // 
             passwordLabel.AutoSize = true;
@@ -117,14 +93,6 @@
             passwordLabel.Size = new System.Drawing.Size(56, 13);
             passwordLabel.TabIndex = 7;
             passwordLabel.Text = "Password:";
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Password", true));
-            this.passwordTextBox.Location = new System.Drawing.Point(156, 154);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passwordTextBox.TabIndex = 8;
             // 
             // prenumeLabel
             // 
@@ -135,14 +103,6 @@
             prenumeLabel.TabIndex = 9;
             prenumeLabel.Text = "Prenume:";
             // 
-            // prenumeTextBox
-            // 
-            this.prenumeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Prenume", true));
-            this.prenumeTextBox.Location = new System.Drawing.Point(32, 70);
-            this.prenumeTextBox.Name = "prenumeTextBox";
-            this.prenumeTextBox.Size = new System.Drawing.Size(226, 20);
-            this.prenumeTextBox.TabIndex = 10;
-            // 
             // telefonLabel
             // 
             telefonLabel.AutoSize = true;
@@ -151,14 +111,6 @@
             telefonLabel.Size = new System.Drawing.Size(46, 13);
             telefonLabel.TabIndex = 11;
             telefonLabel.Text = "Telefon:";
-            // 
-            // telefonTextBox
-            // 
-            this.telefonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Telefon", true));
-            this.telefonTextBox.Location = new System.Drawing.Point(158, 115);
-            this.telefonTextBox.Name = "telefonTextBox";
-            this.telefonTextBox.Size = new System.Drawing.Size(100, 20);
-            this.telefonTextBox.TabIndex = 12;
             // 
             // usernameLabel
             // 
@@ -169,17 +121,65 @@
             usernameLabel.TabIndex = 13;
             usernameLabel.Text = "Username:";
             // 
+            // cNPTextBox
+            // 
+            this.cNPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "CNP", true));
+            this.cNPTextBox.Location = new System.Drawing.Point(34, 115);
+            this.cNPTextBox.Name = "cNPTextBox";
+            this.cNPTextBox.Size = new System.Drawing.Size(118, 20);
+            this.cNPTextBox.TabIndex = 3;
+            // 
+            // cumparatorBindingSource
+            // 
+            this.cumparatorBindingSource.DataSource = typeof(LicitatiiDAL.Cumparator);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Id", true));
+            this.idTextBox.Location = new System.Drawing.Point(358, 70);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 4;
+            // 
+            // numeTextBox
+            // 
+            this.numeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Nume", true));
+            this.numeTextBox.Location = new System.Drawing.Point(32, 31);
+            this.numeTextBox.Name = "numeTextBox";
+            this.numeTextBox.Size = new System.Drawing.Size(226, 20);
+            this.numeTextBox.TabIndex = 1;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Password", true));
+            this.passwordTextBox.Location = new System.Drawing.Point(156, 154);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
+            this.passwordTextBox.TabIndex = 6;
+            // 
+            // prenumeTextBox
+            // 
+            this.prenumeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Prenume", true));
+            this.prenumeTextBox.Location = new System.Drawing.Point(32, 70);
+            this.prenumeTextBox.Name = "prenumeTextBox";
+            this.prenumeTextBox.Size = new System.Drawing.Size(226, 20);
+            this.prenumeTextBox.TabIndex = 2;
+            // 
+            // telefonTextBox
+            // 
+            this.telefonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Telefon", true));
+            this.telefonTextBox.Location = new System.Drawing.Point(158, 115);
+            this.telefonTextBox.Name = "telefonTextBox";
+            this.telefonTextBox.Size = new System.Drawing.Size(100, 20);
+            this.telefonTextBox.TabIndex = 4;
+            // 
             // usernameTextBox
             // 
             this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cumparatorBindingSource, "Username", true));
             this.usernameTextBox.Location = new System.Drawing.Point(36, 154);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.usernameTextBox.TabIndex = 14;
-            // 
-            // cumparatorBindingSource
-            // 
-            this.cumparatorBindingSource.DataSource = typeof(LicitatiiDAL.Cumparator);
+            this.usernameTextBox.TabIndex = 5;
             // 
             // btnAccepta
             // 
@@ -187,7 +187,7 @@
             this.btnAccepta.Location = new System.Drawing.Point(102, 194);
             this.btnAccepta.Name = "btnAccepta";
             this.btnAccepta.Size = new System.Drawing.Size(75, 23);
-            this.btnAccepta.TabIndex = 15;
+            this.btnAccepta.TabIndex = 7;
             this.btnAccepta.Text = "Accepta";
             this.btnAccepta.UseVisualStyleBackColor = true;
             this.btnAccepta.Click += new System.EventHandler(this.btnAccepta_Click);
@@ -198,7 +198,7 @@
             this.btnAnulare.Location = new System.Drawing.Point(183, 194);
             this.btnAnulare.Name = "btnAnulare";
             this.btnAnulare.Size = new System.Drawing.Size(75, 23);
-            this.btnAnulare.TabIndex = 16;
+            this.btnAnulare.TabIndex = 8;
             this.btnAnulare.Text = "Anulare";
             this.btnAnulare.UseVisualStyleBackColor = true;
             // 

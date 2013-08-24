@@ -62,6 +62,7 @@ namespace Vanzator
                 errorProvider1.SetError(pretDeInceputNumericUpDown, null);
             }
 
+            /*
             if (dataDeInceputDateTimePicker.Value < DateTime.Now)
             {
                 errorProvider1.SetError(dataDeInceputDateTimePicker, "Invalid");
@@ -71,6 +72,7 @@ namespace Vanzator
             {
                 errorProvider1.SetError(dataDeInceputDateTimePicker, null);
             }
+             */
 
             if (dataDeSfarsitDateTimePicker.Value < dataDeInceputDateTimePicker.Value)
             {

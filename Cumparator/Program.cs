@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LicitatiiDAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace Cumparator
                 var ret = formAuth.ShowDialog();
                 if (ret == DialogResult.OK)
                 {
-                    //Application.Run(new FormVanzator());
+                    Application.Run(new FormCumparator());
                 }
             }
 

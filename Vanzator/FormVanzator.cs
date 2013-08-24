@@ -47,6 +47,8 @@ namespace Vanzator
             var vanzator = Program.Vanzator;
             object prods = vanzator.Produs;
 
+            this.Text = "Vanzator - " + vanzator.Nume + " " + vanzator.Prenume;
+
             Filtru filtru;
             Enum.TryParse<Filtru>(toolStripComboBox1.ComboBox.SelectedValue.ToString(), out filtru);
             switch (filtru)
@@ -66,12 +68,69 @@ namespace Vanzator
 
             produsBindingSource.DataSource = null;
             produsBindingSource.DataSource = prods;
-           
+
+
+            var maxProd = vanzator.Produs
+                .Where(p => p.CumparatorId != null && p.DataDeSfarsit < DateTime.Now)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Nume,
+                    p.PretDeInceput,
+                    p.PretLicitat,
+                    Profit = p.PretLicitat - p.PretDeInceput
+                }).OrderByDescending(v => v.Profit)
+                .FirstOrDefault();
+
+            if (maxProd != null)
+            {
+                tbNumeCeaMaiBunaLicitatie.Text = maxProd.Nume;
+                tbPretStartCeaMaiBunaLicitatie.Text = maxProd.PretDeInceput.ToString();
+                tbPretSfarsitCeaMaiBunaLicitatie.Text = maxProd.PretLicitat.ToString();
+            }
+
+            var minProd = vanzator.Produs
+               .Where(p => p.CumparatorId != null && p.DataDeSfarsit < DateTime.Now)
+               .Select(p => new
+               {
+                   p.Id,
+                   p.Nume,
+                   p.PretDeInceput,
+                   p.PretLicitat,
+                   Profit = p.PretLicitat - p.PretDeInceput
+               }).OrderBy(v => v.Profit)
+               .FirstOrDefault();
+
+            if (minProd != null)
+            {
+                tbNumeCeaMaiSlabaLicitatie.Text = minProd.Nume;
+                tbPretStartCeaMaiSlabaLicitatie.Text = minProd.PretDeInceput.ToString();
+                tbPretSfarsitCeaMaiSlabaLicitatie.Text = minProd.PretLicitat.ToString();
+            }
+
+            var incasari = vanzator.Produs
+               .Where(p => p.CumparatorId != null && p.DataDeSfarsit < DateTime.Now)
+               .Select(p => new
+               {
+                   p.PretLicitat,
+               }).Sum(p => p.PretLicitat).GetValueOrDefault(0.0m);
+
+            tbValTotalIncasari.Text = incasari.ToString();
+
+
+            var profit = vanzator.Produs
+               .Where(p => p.CumparatorId != null && p.DataDeSfarsit < DateTime.Now)
+               .Select(p => new
+               {
+                   Profit = p.PretLicitat - p.PretDeInceput
+               }).Sum(p => p.Profit).GetValueOrDefault(0.0m);
+
+            tbProfit.Text = profit.ToString();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            
+
             var dlgAddProdus = new FormAddProdus();
 
 
@@ -81,7 +140,7 @@ namespace Vanzator
             var oc = ((IObjectContextAdapter)Program.Context).ObjectContext;
             var p = oc.CreateObject<Produs>();
 
-            
+
             p.Vanzator = Program.Vanzator;
             p.DataDeInceput = DateTime.Now.AddMinutes(5.0);
             p.DataDeSfarsit = DateTime.Now.AddMinutes(10.0);
@@ -102,12 +161,12 @@ namespace Vanzator
             {
                 produsBindingSource.CancelEdit();
             }
-            
+
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            
+
             var raspuns = MessageBox.Show("Doriti sa stergeti produsul?", "Stergere", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (raspuns == System.Windows.Forms.DialogResult.Yes)
             {
@@ -116,13 +175,13 @@ namespace Vanzator
                 Program.Context.SaveChanges();
                 updateBinding();
             }
-    
+
         }
 
         private void produsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-           
+
             Filtru filtru;
             Enum.TryParse<Filtru>(toolStripComboBox1.ComboBox.SelectedValue.ToString(), out filtru);
 
@@ -138,7 +197,7 @@ namespace Vanzator
 
 
             var p = (Produs)produsBindingSource.List[row];
-           
+
             dlgAddProdus.Produs = p;
 
             if (dlgAddProdus.ShowDialog() == DialogResult.OK)
@@ -155,10 +214,10 @@ namespace Vanzator
             {
                 produsBindingSource.CancelEdit();
             }
-            
+
         }
 
-      
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             /*
@@ -170,6 +229,6 @@ namespace Vanzator
             updateBinding();
         }
 
-       
+
     }
 }

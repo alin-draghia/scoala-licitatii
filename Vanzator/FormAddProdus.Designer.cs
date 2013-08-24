@@ -126,7 +126,7 @@
             // 
             // dataDeInceputDateTimePicker
             // 
-            this.dataDeInceputDateTimePicker.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dataDeInceputDateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dataDeInceputDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.produsBindingSource, "DataDeInceput", true));
             this.dataDeInceputDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dataDeInceputDateTimePicker.Location = new System.Drawing.Point(254, 57);
@@ -140,7 +140,7 @@
             // 
             // dataDeSfarsitDateTimePicker
             // 
-            this.dataDeSfarsitDateTimePicker.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dataDeSfarsitDateTimePicker.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dataDeSfarsitDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.produsBindingSource, "DataDeSfarsit", true));
             this.dataDeSfarsitDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dataDeSfarsitDateTimePicker.Location = new System.Drawing.Point(254, 98);
@@ -193,6 +193,11 @@
             0,
             0});
             this.pretDeInceputNumericUpDown.Location = new System.Drawing.Point(254, 137);
+            this.pretDeInceputNumericUpDown.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
             this.pretDeInceputNumericUpDown.Name = "pretDeInceputNumericUpDown";
             this.pretDeInceputNumericUpDown.Size = new System.Drawing.Size(133, 20);
             this.pretDeInceputNumericUpDown.TabIndex = 4;

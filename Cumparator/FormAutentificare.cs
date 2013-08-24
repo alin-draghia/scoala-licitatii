@@ -21,7 +21,10 @@ namespace Cumparator
 
         private void creazaContLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            var contDlg = new FormInregistrare();
+            contDlg.ShowDialog();
+            tbUser.Text = string.Empty;
+            tbPass.Text = string.Empty;
         }
 
         private void btnAccepta_Click(object sender, EventArgs e)

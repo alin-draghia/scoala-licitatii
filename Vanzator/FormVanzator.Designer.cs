@@ -41,10 +41,10 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.produsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +74,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbValTotalIncasari = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbProfit = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.produsBindingNavigator)).BeginInit();
             this.produsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produsBindingSource)).BeginInit();
@@ -99,10 +101,10 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
+            this.toolStripComboBox1,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.toolStripButton1,
-            this.toolStripComboBox1});
+            this.toolStripButton1});
             this.produsBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.produsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.produsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -110,7 +112,7 @@
             this.produsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.produsBindingNavigator.Name = "produsBindingNavigator";
             this.produsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.produsBindingNavigator.Size = new System.Drawing.Size(725, 25);
+            this.produsBindingNavigator.Size = new System.Drawing.Size(873, 25);
             this.produsBindingNavigator.TabIndex = 0;
             this.produsBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -185,6 +187,12 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -216,12 +224,6 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
-            // 
             // produsDataGridView
             // 
             this.produsDataGridView.AllowUserToAddRows = false;
@@ -245,7 +247,7 @@
             this.produsDataGridView.Name = "produsDataGridView";
             this.produsDataGridView.ReadOnly = true;
             this.produsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.produsDataGridView.Size = new System.Drawing.Size(701, 318);
+            this.produsDataGridView.Size = new System.Drawing.Size(849, 318);
             this.produsDataGridView.TabIndex = 1;
             this.produsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.produsDataGridView_CellDoubleClick);
             // 
@@ -329,7 +331,6 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "Cumparator";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
             // 
             // groupBox1
             // 
@@ -471,6 +472,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.tbProfit);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.tbValTotalIncasari);
             this.groupBox3.Location = new System.Drawing.Point(392, 352);
@@ -498,11 +501,29 @@
             this.tbValTotalIncasari.TabIndex = 13;
             this.tbValTotalIncasari.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Profit:";
+            // 
+            // tbProfit
+            // 
+            this.tbProfit.Location = new System.Drawing.Point(78, 44);
+            this.tbProfit.Name = "tbProfit";
+            this.tbProfit.ReadOnly = true;
+            this.tbProfit.Size = new System.Drawing.Size(100, 20);
+            this.tbProfit.TabIndex = 15;
+            this.tbProfit.TabStop = false;
+            // 
             // FormVanzator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 458);
+            this.ClientSize = new System.Drawing.Size(873, 458);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -543,17 +564,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView produsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbPretSfarsitCeaMaiBunaLicitatie;
         private System.Windows.Forms.Label label3;
@@ -573,5 +583,18 @@
         private System.Windows.Forms.TextBox tbValTotalIncasari;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbProfit;
     }
 }

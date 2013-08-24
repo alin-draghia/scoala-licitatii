@@ -62,6 +62,12 @@
     <Compile Include="FormAutentificare.Designer.cs">
       <DependentUpon>FormAutentificare.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCumparator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCumparator.Designer.cs">
+      <DependentUpon>FormCumparator.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInregistrare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAutentificare.resx">
       <DependentUpon>FormAutentificare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCumparator.resx">
+      <DependentUpon>FormCumparator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInregistrare.resx">
       <DependentUpon>FormInregistrare.cs</DependentUpon>
@@ -84,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\LicitatiiDAL.Cumparator.datasource" />
@@ -108,6 +118,12 @@
       <Project>{9e123973-5e7c-4b14-83ab-f86d66865a54}</Project>
       <Name>LicitatiiDAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddMark_10580.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RefreshArrow_Green_16x16_72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

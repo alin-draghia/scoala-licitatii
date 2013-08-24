@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Partiale.cs" />
     <Compile Include="Produs.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
