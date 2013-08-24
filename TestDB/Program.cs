@@ -12,10 +12,10 @@ namespace TestDB
         static void Main(string[] args)
         {
 
-            //AdaugareVanzatori();
-            ListareVanzatori();
+            AdaugareVanzatori();
+            //ListareVanzatori();
             //AdaugareCumparatori();
-            ListareCumparatori();
+            //ListareCumparatori();
             Console.ReadLine();
         }
 

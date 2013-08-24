@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="Licitatii.Produs" Width="1.5" PointX="6" PointY="1" />
         <EntityTypeShape EntityType="Licitatii.Vanzator" Width="1.5" PointX="3" PointY="0.5" />
         <InheritanceConnector EntityType="Licitatii.Vanzator" />
-        <EntityTypeShape EntityType="Licitatii.Cumparator" Width="1.5" PointX="3.125" PointY="2.25" />
+        <EntityTypeShape EntityType="Licitatii.Cumparator" Width="1.5" PointX="3.25" PointY="3" />
         <InheritanceConnector EntityType="Licitatii.Cumparator" />
         <AssociationConnector Association="Licitatii.VanzatorProdus" />
         <AssociationConnector Association="Licitatii.CumparatorProdus" />

@@ -11,6 +11,7 @@ namespace Vanzator
     {
 
         public static LicitatiiDAL.Vanzator Vanzator { get; set; }
+        public static LicitatiiContext Context { get; private set; }
 
         /// <summary>
         /// The main entry point for the application.
@@ -18,17 +19,24 @@ namespace Vanzator
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            var formularAutentificare = new FormularAutentificare();
-            var rezultatAutenficare = formularAutentificare.ShowDialog();
-            if (rezultatAutenficare == DialogResult.OK) 
+            using (var ctx = new LicitatiiContext())
             {
-                Application.Run(new FormularVanzator());
+
+                //ctx.Configuration.ProxyCreationEnabled = false;
+                Context = ctx;
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                var formularAutentificare = new FormularAutentificare();
+                var rezultatAutenficare = formularAutentificare.ShowDialog();
+                if (rezultatAutenficare == DialogResult.OK)
+                {
+                    Application.Run(new FormVanzator());
+                }
+                //Application.Run();
+                //Application.Run(new Form1());
             }
-            //Application.Run();
-            //Application.Run(new Form1());
         }
     }
 }

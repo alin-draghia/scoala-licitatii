@@ -48,8 +48,8 @@
     <Property Name="PretLicitat" Type="decimal" Nullable="true" />
     <Property Name="DataDeInceput" Type="datetime" Nullable="false" />
     <Property Name="DataDeSfarsit" Type="datetime" Nullable="false" />
-    <Property Name="VanzatorId" Type="int" Nullable="false" />
-    <Property Name="CumparatorId" Type="int" Nullable="false" />
+    <Property Name="VanzatorId" Type="int" Nullable="true" />
+    <Property Name="CumparatorId" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Utilizatori_Vanzator">
     <Key>
@@ -67,7 +67,7 @@
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="VanzatorProdus">
-    <End Role="Vanzator" Type="Licitatii.Store.Utilizatori_Vanzator" Multiplicity="1" />
+    <End Role="Vanzator" Type="Licitatii.Store.Utilizatori_Vanzator" Multiplicity="0..1" />
     <End Role="Produs" Type="Licitatii.Store.Produse" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Vanzator">
@@ -79,7 +79,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CumparatorProdus">
-    <End Role="Cumparator" Type="Licitatii.Store.Utilizatori_Cumparator" Multiplicity="1" />
+    <End Role="Cumparator" Type="Licitatii.Store.Utilizatori_Cumparator" Multiplicity="0..1" />
     <End Role="Produs" Type="Licitatii.Store.Produse" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cumparator">
@@ -156,9 +156,9 @@
           <Property Type="DateTime" Name="DataDeInceput" Nullable="false" />
           <Property Type="DateTime" Name="DataDeSfarsit" Nullable="false" />
           <NavigationProperty Name="Vanzator" Relationship="Licitatii.VanzatorProdus" FromRole="Produs" ToRole="Vanzator" />
-          <Property Type="Int32" Name="VanzatorId" Nullable="false" />
+          <Property Type="Int32" Name="VanzatorId" />
           <NavigationProperty Name="Cumparator" Relationship="Licitatii.CumparatorProdus" FromRole="Produs" ToRole="Cumparator" />
-          <Property Type="Int32" Name="CumparatorId" Nullable="false" />
+          <Property Type="Int32" Name="CumparatorId" />
         </EntityType>
         <EntityType Name="Vanzator" BaseType="Licitatii.Utilizator" >
           <Property Type="String" Name="Adresa" Nullable="false" />
@@ -170,8 +170,10 @@
           <NavigationProperty Name="Produs" Relationship="Licitatii.CumparatorProdus" FromRole="Cumparator" ToRole="Produs" />
         </EntityType>
         <Association Name="VanzatorProdus">
-          <End Type="Licitatii.Vanzator" Role="Vanzator" Multiplicity="1" />
-          <End Type="Licitatii.Produs" Role="Produs" Multiplicity="*" />
+          <End Type="Licitatii.Vanzator" Role="Vanzator" Multiplicity="0..1" >
+          </End>
+          <End Type="Licitatii.Produs" Role="Produs" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Vanzator">
               <PropertyRef Name="Id" />
@@ -182,8 +184,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="CumparatorProdus">
-          <End Type="Licitatii.Cumparator" Role="Cumparator" Multiplicity="1" />
-          <End Type="Licitatii.Produs" Role="Produs" Multiplicity="*" />
+          <End Type="Licitatii.Cumparator" Role="Cumparator" Multiplicity="0..1" >
+          </End>
+          <End Type="Licitatii.Produs" Role="Produs" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Cumparator">
               <PropertyRef Name="Id" />

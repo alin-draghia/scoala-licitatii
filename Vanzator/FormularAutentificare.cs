@@ -20,30 +20,29 @@ namespace Vanzator
 
         private void linkLabel1_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void acceptaButon_Click(object sender, EventArgs e)
         {
-            using (var ctx = new LicitatiiContext())
+            var ctx = Program.Context;
+            var vanzator = ctx.Utilizatori.OfType<LicitatiiDAL.Vanzator>()
+                .Where(v => v.Username.Equals(utilizatorTextbox.Text))
+                .Where(v => v.Password.Equals(parolaTextbox.Text))
+                .FirstOrDefault();
+            if (vanzator != null)
             {
-                var vanzator = ctx.Utilizatori.OfType<LicitatiiDAL.Vanzator>()
-                    .Where(v => v.Username.Equals(utilizatorTextbox.Text))
-                    .Where(v => v.Password.Equals(parolaTextbox.Text))
-                    .FirstOrDefault();
-                if (vanzator != null)
-                {
-                    Program.Vanzator = vanzator;
-                    errorProvider1.SetError(acceptaButon, string.Empty);
-                }
-                else
-                {
-                    Program.Vanzator = null;
-                    DialogResult = System.Windows.Forms.DialogResult.None;
-                    errorProvider1.SetIconAlignment(acceptaButon, ErrorIconAlignment.MiddleLeft);
-                    errorProvider1.SetError(acceptaButon, "Utilizator sau parola gresite!");
-                }
+                Program.Vanzator = vanzator;
+                errorProvider1.SetError(acceptaButon, string.Empty);
             }
+            else
+            {
+                Program.Vanzator = null;
+                DialogResult = System.Windows.Forms.DialogResult.None;
+                errorProvider1.SetIconAlignment(acceptaButon, ErrorIconAlignment.MiddleLeft);
+                errorProvider1.SetError(acceptaButon, "Utilizator sau parola gresite!");
+            }
+
         }
 
         private void anuleazaButon_Click(object sender, EventArgs e)

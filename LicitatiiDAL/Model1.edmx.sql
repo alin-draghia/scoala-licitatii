@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 07/18/2013 20:20:28
+-- Date Created: 08/24/2013 15:41:18
 -- Generated from EDMX file: D:\dev\scoala\Csharp\Lab\PlatformaLicitatii\LicitatiiDAL\Model1.edmx
 -- --------------------------------------------------
 
@@ -70,8 +70,8 @@ CREATE TABLE [dbo].[Produse] (
     [PretLicitat] decimal(18,0)  NULL,
     [DataDeInceput] datetime  NOT NULL,
     [DataDeSfarsit] datetime  NOT NULL,
-    [VanzatorId] int  NOT NULL,
-    [CumparatorId] int  NOT NULL
+    [VanzatorId] int  NULL,
+    [CumparatorId] int  NULL
 );
 GO
 

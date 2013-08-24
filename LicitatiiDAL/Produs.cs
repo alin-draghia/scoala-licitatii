@@ -21,8 +21,8 @@ namespace LicitatiiDAL
         public Nullable<decimal> PretLicitat { get; set; }
         public System.DateTime DataDeInceput { get; set; }
         public System.DateTime DataDeSfarsit { get; set; }
-        public int VanzatorId { get; set; }
-        public int CumparatorId { get; set; }
+        public Nullable<int> VanzatorId { get; set; }
+        public Nullable<int> CumparatorId { get; set; }
     
         public virtual Vanzator Vanzator { get; set; }
         public virtual Cumparator Cumparator { get; set; }

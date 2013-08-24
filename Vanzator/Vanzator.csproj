@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddProdus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProdus.Designer.cs">
+      <DependentUpon>FormAddProdus.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularAutentificare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,22 +67,25 @@
     <Compile Include="FormularInregistrareVanzator.Designer.cs">
       <DependentUpon>FormularInregistrareVanzator.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularVanzator.cs">
+    <Compile Include="FormVanzator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularVanzator.Designer.cs">
-      <DependentUpon>FormularVanzator.cs</DependentUpon>
+    <Compile Include="FormVanzator.Designer.cs">
+      <DependentUpon>FormVanzator.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddProdus.resx">
+      <DependentUpon>FormAddProdus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularAutentificare.resx">
       <DependentUpon>FormularAutentificare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormularInregistrareVanzator.resx">
       <DependentUpon>FormularInregistrareVanzator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularVanzator.resx">
-      <DependentUpon>FormularVanzator.cs</DependentUpon>
+    <EmbeddedResource Include="FormVanzator.resx">
+      <DependentUpon>FormVanzator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
