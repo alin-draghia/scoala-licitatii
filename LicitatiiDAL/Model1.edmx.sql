@@ -1,9 +1,9 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/24/2013 15:41:18
--- Generated from EDMX file: D:\dev\scoala\Csharp\Lab\PlatformaLicitatii\LicitatiiDAL\Model1.edmx
+-- Date Created: 05/13/2014 09:58:10
+-- Generated from EDMX file: d:\DEV.0\scola-licitatii\LicitatiiDAL\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,35 +17,11 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_VanzatorProdus]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Produse] DROP CONSTRAINT [FK_VanzatorProdus];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CumparatorProdus]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Produse] DROP CONSTRAINT [FK_CumparatorProdus];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Vanzator_inherits_Utilizator]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Utilizatori_Vanzator] DROP CONSTRAINT [FK_Vanzator_inherits_Utilizator];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Cumparator_inherits_Utilizator]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Utilizatori_Cumparator] DROP CONSTRAINT [FK_Cumparator_inherits_Utilizator];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Utilizatori]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Utilizatori];
-GO
-IF OBJECT_ID(N'[dbo].[Produse]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Produse];
-GO
-IF OBJECT_ID(N'[dbo].[Utilizatori_Vanzator]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Utilizatori_Vanzator];
-GO
-IF OBJECT_ID(N'[dbo].[Utilizatori_Cumparator]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Utilizatori_Cumparator];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables

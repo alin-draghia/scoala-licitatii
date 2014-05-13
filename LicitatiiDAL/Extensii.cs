@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace LicitatiiDAL
 {
+    
     public partial class Utilizator
     {
         public override string ToString()
         {
-            return Nume + ", " + Prenume + ", " + Username + ", " + Password; 
+            return Nume + ", " + Prenume;// +", " + Username + ", " + Password; 
         }
     }
-
+    
     public partial class Vanzator
     {
         public override string ToString()

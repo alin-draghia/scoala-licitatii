@@ -37,30 +37,27 @@ namespace TestDB
             using (var ctx = new LicitatiiContext())
             {
 
-                ctx.Utilizatori.Add(
-                    new Vanzator()
-                    {
-                        Adresa = "Brasov, Brasov, Paraului nr. 5",
-                        Nume = "Draghia",
-                        Prenume = "Alin",
-                        Username = "alin",
-                        Password = "login"
-                    }
-                );
+                try
+                {
+                    ctx.Utilizatori.Add(
+                        new Vanzator()
+                        {
+                            Adresa = "Brasov, Brasov, Paraului nr. 5",
+                            Nume = "Draghia",
+                            Prenume = "Alin",
+                            Username = "alin2",
+                            Password = "login"
+                        }
+                    );
 
-                ctx.Utilizatori.Add(
-                    new Vanzator()
-                    {
-                        Adresa = "Bacau, Moinesti, Garii nr. 1",
-                        Nume = "Mocanasu",
-                        Prenume = "Cristina",
-                        Username = "cristina",
-                        Password = "login"
-                    }
-                );
 
-                ctx.SaveChanges();
 
+                    ctx.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
             }
         }
 
